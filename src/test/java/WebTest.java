@@ -150,7 +150,7 @@ public class WebTest {
     //    Подтвердите, что имена создателей сайта:
 //    Oliver Schade, Gregor Scheithauer, Stefan Scheler
     @Test
-    public void test() {
+    public void testTeamNames() {
 
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
@@ -168,26 +168,76 @@ public class WebTest {
                 By.xpath("//body/div[@id='wrap']/div[@id='navigation']/ul[@id='submenu']/li/a[@href='team.html']"));
         menuTeam.click();
 
-        String[] result = new String[3];
         WebElement os = driver.findElement(
                 By.xpath("//body/div[@id='wrap']/div[@id='main']/h3[1]"));
-        result[0] = os.getText();
+        String actualResult = os.getText();
 
         WebElement gs = driver.findElement(
                 By.xpath("//body/div[@id='wrap']/div[@id='main']/h3[2]"));
-        result[1] = gs.getText();
+        actualResult += gs.getText();
 
         WebElement ss = driver.findElement(
                 By.xpath("//body/div[@id='wrap']/div[@id='main']/h3[3]"));
-        result[2] = ss.getText();
+        actualResult += ss.getText();
 
-        String actualResult = (result[0] + result[1] + result[2]);
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+    // Проверить что в первой строке раздела History упоминается Tim Robinson
+    @Test
+    public void test() {
+
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+        Boolean expectedResult = true;
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement submenuHistory = driver.findElement(
+                By.xpath("//body/div[@id='wrap']/div[@id='navigation']/ul[@id='submenu']/li/a[@href='info.html']"));
+        submenuHistory.click();
+
+        WebElement firstString = driver.findElement(
+                By.xpath("//body/div[@id='wrap']/div[@id='main']/p"));
+        String timRobinson = firstString.getText();
+
+        Boolean actualResult = timRobinson.contains("Tim Robinson");
 
         Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
     }
 }
+
+
+//    @Test
+//    public void test() {
+//
+//        String chromeDriver = "webdriver.chrome.driver";
+//        String driverPath = "/Applications/chromedriver";
+//        String url = "http://www.99-bottles-of-beer.net/";
+//        String expectedResult = "";
+//
+//        System.setProperty(chromeDriver, driverPath);
+//        WebDriver driver = new ChromeDriver();
+//
+//        driver.get(url);
+//
+//        WebElement xxx = driver.findElement(
+//                By.xpath(""));
+//        String actualResult = xxx.getText();
+//
+//        Assert.assertEquals(actualResult, expectedResult);
+//
+//        driver.quit();
+//    }
+
 
 
 
