@@ -2,11 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Locale;
 
 public class WebTest {
 
@@ -19,7 +16,7 @@ public class WebTest {
      */
 
     @Test
-    public void testMenuStartTitle() throws InterruptedException {
+    public void testMenuStartTitle() {
 
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
@@ -526,7 +523,7 @@ public class WebTest {
      * белыми буквами bold шрифтом на красном фоне, и что все буквы - capital
      */
     /**
-     * Option 1
+     * Option 1 (style, tag name)
      */
     @Test
     public void testImportant1() {
@@ -536,6 +533,7 @@ public class WebTest {
         String url = "http://www.99-bottles-of-beer.net/submitnewlanguage.html";
         String expectedResultText = "IMPORTANT:";
         String expectedResultStyle = "background-color: red; color: white;";
+        String expectedResultBold = "b";
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
@@ -544,19 +542,21 @@ public class WebTest {
 
         WebElement important = driver.findElement(
                 By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span"));
+
         String actualResultText = important.getText();
+        String actualResultStyle = important.getAttribute("style");
+        String actualResultBold = driver.findElement(
+                By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span/b")).getTagName();
 
         Assert.assertEquals(actualResultText, expectedResultText.toUpperCase());
-
-        String actualResultStyle = important.getAttribute("style");
-
         Assert.assertEquals(actualResultStyle, expectedResultStyle);
+        Assert.assertEquals(actualResultBold, expectedResultBold);
 
         driver.quit();
     }
 
     /**
-     * Option 2
+     * Option 2 (css)
      */
     @Test
     public void testImportant2() {
@@ -565,7 +565,7 @@ public class WebTest {
         String driverPath = "/Applications/chromedriver";
         String url = "http://www.99-bottles-of-beer.net/submitnewlanguage.html";
         String expectedResultText = "IMPORTANT:";
-        String expectedResultBold = "b";
+        String expectedResultBold = "700";
         String expectedResultTextColor = "rgba(255, 0, 0, 1)";
         String expectedResultBackgroundColor = "rgba(255, 255, 255, 1)";
 
@@ -577,14 +577,11 @@ public class WebTest {
         WebElement important = driver.findElement(
                 By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span"));
         String actualResultText = important.getText();
-
-        Assert.assertEquals(actualResultText, expectedResultText.toUpperCase());
-
-        String actualResultBold = driver.findElement(
-                By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span/b")).getTagName();
+        String actualResultBold = important.getCssValue("font-weight");
         String actualResultTextColor = important.getCssValue("background-color");
         String actualResultBackgroundColor = important.getCssValue("color");
 
+        Assert.assertEquals(actualResultText, expectedResultText.toUpperCase());
         Assert.assertEquals(actualResultBold, expectedResultBold);
         Assert.assertEquals(actualResultTextColor, expectedResultTextColor);
         Assert.assertEquals(actualResultBackgroundColor, expectedResultBackgroundColor);
