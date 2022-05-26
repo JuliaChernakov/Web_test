@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -391,10 +392,14 @@ public class WebTest {
 
         String[] arrayOfWords = errorMessage.split(" ");
         String actualResult1 = String.valueOf(arrayOfWords[0].charAt(0));
-        String actualResult2 = String.valueOf(arrayOfWords[1].charAt(0));;
-        String actualResult3 = String.valueOf(arrayOfWords[4].charAt(0));;
-        String actualResult4 = String.valueOf(arrayOfWords[5].charAt(0));;
-        String actualResult5 = String.valueOf(arrayOfWords[2].charAt(0));;
+        String actualResult2 = String.valueOf(arrayOfWords[1].charAt(0));
+        ;
+        String actualResult3 = String.valueOf(arrayOfWords[4].charAt(0));
+        ;
+        String actualResult4 = String.valueOf(arrayOfWords[5].charAt(0));
+        ;
+        String actualResult5 = String.valueOf(arrayOfWords[2].charAt(0));
+        ;
         String actualResult6 = String.valueOf(arrayOfWords[0].charAt(arrayOfWords[0].length() - 1));
         String actualResult7 = arrayOfWords[3];
         String actualResult8 = String.valueOf(arrayOfWords[5].charAt(arrayOfWords[0].length() - 1));
@@ -520,27 +525,76 @@ public class WebTest {
      * пользователь видит предупреждение IMPORTANT:, написанное
      * белыми буквами bold шрифтом на красном фоне, и что все буквы - capital
      */
+    /**
+     * Option 1
+     */
     @Test
-    public void testImportant() {
+    public void testImportant1() {
 
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
         String url = "http://www.99-bottles-of-beer.net/submitnewlanguage.html";
-        String expectedResult = "IMPORTANT:";
+        String expectedResultText = "IMPORTANT:";
+        String expectedResultStyle = "background-color: red; color: white;";
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
 
         driver.get(url);
 
-        WebElement important = driver.findElement(By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span"));
-        String actualResult = important.getText();
+        WebElement important = driver.findElement(
+                By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span"));
+        String actualResultText = important.getText();
 
-        Assert.assertEquals(actualResult, expectedResult);
+        Assert.assertEquals(actualResultText, expectedResultText.toUpperCase());
+
+        String actualResultStyle = important.getAttribute("style");
+
+        Assert.assertEquals(actualResultStyle, expectedResultStyle);
+
+        driver.quit();
+    }
+
+    /**
+     * Option 2
+     */
+    @Test
+    public void testImportant2() {
+
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/submitnewlanguage.html";
+        String expectedResultText = "IMPORTANT:";
+        String expectedResultBold = "b";
+        String expectedResultTextColor = "rgba(255, 0, 0, 1)";
+        String expectedResultBackgroundColor = "rgba(255, 255, 255, 1)";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement important = driver.findElement(
+                By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span"));
+        String actualResultText = important.getText();
+
+        Assert.assertEquals(actualResultText, expectedResultText.toUpperCase());
+
+        String actualResultBold = driver.findElement(
+                By.xpath("//body/div[@id='wrap']/div[@id='main']/ul/li/span/b")).getTagName();
+        String actualResultTextColor = important.getCssValue("background-color");
+        String actualResultBackgroundColor = important.getCssValue("color");
+
+        Assert.assertEquals(actualResultBold, expectedResultBold);
+        Assert.assertEquals(actualResultTextColor, expectedResultTextColor);
+        Assert.assertEquals(actualResultBackgroundColor, expectedResultBackgroundColor);
 
         driver.quit();
     }
 }
+
+
+
 
 
 
