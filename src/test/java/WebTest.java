@@ -487,12 +487,12 @@ public class WebTest {
      * новые комментарии, если нажмет на пункты меню Top List → New Comments
      */
     @Test
-    public void testComments() {
+    public void testNoComments() {
 
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
         String url = "http://www.99-bottles-of-beer.net/";
-        String expectedResult = "New Comments\n" + "{LIST}";
+        String expectedResult = "";
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
@@ -508,7 +508,7 @@ public class WebTest {
         newComments.click();
 
         WebElement textComments = driver.findElement(
-                By.xpath("//body/div[@id='wrap']/div[@id='main']"));
+                By.xpath("//body/div[@id='wrap']/div[@id='main']/p"));
         String actualResult = textComments.getText();
 
         Assert.assertEquals(actualResult, expectedResult);
