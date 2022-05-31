@@ -13,7 +13,7 @@ public class NewWebTest {
      * начинающиеся с буквы J, отсортированные по названию
      */
     @Test
-    public void test() {
+    public void testPageDescription() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
         String url = "http://www.99-bottles-of-beer.net/";
@@ -31,7 +31,65 @@ public class NewWebTest {
         submenuJ.click();
 
         WebElement text = driver.findElement(By.xpath("//p[strong]"));
-        String actualResult = "All languages starting with the letter J are shown, sorted by Language.";
+        String actualResult = text.getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+    /**
+     * Подтвердите, что в меню BROWSE LANGUAGES, подменю  M, последний программный язык в таблице -  MySQL
+     */
+    @Test
+    public void testLastLanguage() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+        String expectedResult = "MySQL";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
+        menuBrowseLanguages.click();
+
+        WebElement submenuM = driver.findElement(By.xpath("//a[@href='m.html']"));
+        submenuM.click();
+
+        WebElement text = driver.findElement(By.xpath("//tr[last()]/td/a"));
+        String actualResult = text.getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+    /**
+     * Подтвердите, что в меню BROWSE LANGUAGES существует таблица
+     * с заголовками Language, Author, Date, Comments, Rate
+     */
+    @Test
+    public void testTableHeaders() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+        String[] expectedResult = {"Language", "Author", "Date", "Comments", "Rate"};
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
+        menuBrowseLanguages.click();
+
+        String[] actualResult = new String[5];
+        for (int i = 1; i <= 5; i++) {
+            actualResult[i - 1] = driver.findElement(By.xpath("//tr/th[" + i + "]")).getText();
+        }
 
         Assert.assertEquals(actualResult, expectedResult);
 
