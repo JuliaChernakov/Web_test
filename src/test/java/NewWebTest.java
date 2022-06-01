@@ -95,4 +95,41 @@ public class NewWebTest {
 
         driver.quit();
     }
+
+    /**
+     *  Подтвердите, что создатель решения на языке Mathematica - Brenton Bostick,
+     *  дата обновления решения на этом языке - 03/16/06, и что это решение имеет 1 комментарий
+     */
+    @Test
+    public void testMathematicaLanguage() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+        String expectedResultAuthor = "Brenton Bostick";
+        String expectedResultDate = "03/16/06";
+        String expectedResultNumber = "1";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
+        menuBrowseLanguages.click();
+        WebElement submenuM = driver.findElement(By.xpath("//a[@href='m.html']"));
+        submenuM.click();
+
+        WebElement author = driver.findElement(By.xpath("//tr[22]/td[2]"));
+        String actualResultAuthor = author.getText();
+        WebElement date = driver.findElement(By.xpath("//tr[22]/td[3]"));
+        String actualResultDate = date.getText();
+        WebElement number = driver.findElement(By.xpath("//tr[22]/td[4]"));
+        String actualResultNumber = number.getText();
+
+        Assert.assertEquals(actualResultAuthor, expectedResultAuthor);
+        Assert.assertEquals(actualResultDate, expectedResultDate);
+        Assert.assertEquals(actualResultNumber, expectedResultNumber);
+
+        driver.quit();
+    }
 }

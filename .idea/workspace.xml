@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="new webtests">
+    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="new web test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="TestNG.NewWebTest.testTableHeaders">
+  <component name="RunManager" selected="TestNG.NewWebTest.testMathematicaLanguage">
     <configuration name="NewWebTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
@@ -62,11 +63,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewWebTest.testTableHeaders" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="NewWebTest.testMathematicaLanguage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NewWebTest" />
-      <option name="METHOD_NAME" value="testTableHeaders" />
+      <option name="METHOD_NAME" value="testMathematicaLanguage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -74,11 +75,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebTest.testImportant1" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="NewWebTest.testTableHeaders" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WebTest" />
-      <option name="METHOD_NAME" value="testImportant1" />
+      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
+      <option name="METHOD_NAME" value="testTableHeaders" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -100,11 +101,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.NewWebTest.testMathematicaLanguage" />
         <item itemvalue="TestNG.NewWebTest.testTableHeaders" />
         <item itemvalue="TestNG.NewWebTest.testLastLanguage" />
         <item itemvalue="TestNG.NewWebTest" />
         <item itemvalue="TestNG.WebTest.testNoComments" />
-        <item itemvalue="TestNG.WebTest.testImportant1" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653894960717</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="new web test">
+      <created>1653956491339</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653956491339</updated>
+    </task>
+    <task id="LOCAL-00010" summary="new web test">
+      <created>1653956504396</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653956504396</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +208,7 @@
     <MESSAGE value="refactor webtests" />
     <MESSAGE value="edit webtests" />
     <MESSAGE value="new webtests" />
-    <option name="LAST_COMMIT_MESSAGE" value="new webtests" />
+    <MESSAGE value="new web test" />
+    <option name="LAST_COMMIT_MESSAGE" value="new web test" />
   </component>
 </project>
