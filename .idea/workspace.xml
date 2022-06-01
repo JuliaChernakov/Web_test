@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="new web test">
+    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="WebTest table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +40,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="TestNG.NewWebTest.testMathematicaLanguage">
+  <component name="RunManager" selected="TestNG.NewWebTest.testDigitBeginning">
     <configuration name="NewWebTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NewWebTest" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewWebTest.testDigitBeginning" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="JavaMavenTestNGWebTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
+      <option name="METHOD_NAME" value="testDigitBeginning" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -87,25 +100,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebTest.testNoComments" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="JavaMavenTestNGWebTests" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WebTest" />
-      <option name="METHOD_NAME" value="testNoComments" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.NewWebTest.testDigitBeginning" />
         <item itemvalue="TestNG.NewWebTest.testMathematicaLanguage" />
         <item itemvalue="TestNG.NewWebTest.testTableHeaders" />
         <item itemvalue="TestNG.NewWebTest.testLastLanguage" />
         <item itemvalue="TestNG.NewWebTest" />
-        <item itemvalue="TestNG.WebTest.testNoComments" />
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653956504396</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="WebTest table">
+      <created>1654043006750</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654043006750</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +217,7 @@
     <MESSAGE value="edit webtests" />
     <MESSAGE value="new webtests" />
     <MESSAGE value="new web test" />
-    <option name="LAST_COMMIT_MESSAGE" value="new web test" />
+    <MESSAGE value="WebTest table" />
+    <option name="LAST_COMMIT_MESSAGE" value="WebTest table" />
   </component>
 </project>

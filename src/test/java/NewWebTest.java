@@ -97,8 +97,8 @@ public class NewWebTest {
     }
 
     /**
-     *  Подтвердите, что создатель решения на языке Mathematica - Brenton Bostick,
-     *  дата обновления решения на этом языке - 03/16/06, и что это решение имеет 1 комментарий
+     * Подтвердите, что создатель решения на языке Mathematica - Brenton Bostick,
+     * дата обновления решения на этом языке - 03/16/06, и что это решение имеет 1 комментарий
      */
     @Test
     public void testMathematicaLanguage() {
@@ -129,6 +129,31 @@ public class NewWebTest {
         Assert.assertEquals(actualResultAuthor, expectedResultAuthor);
         Assert.assertEquals(actualResultDate, expectedResultDate);
         Assert.assertEquals(actualResultNumber, expectedResultNumber);
+
+        driver.quit();
+    }
+
+    /**    Подтвердите, что на сайте существует 10 языков, названия которых начинаются с цифр. */
+    @Test
+    public void testDigitBeginning() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+        int expectedResult = 10;
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
+        menuBrowseLanguages.click();
+        WebElement submenuM = driver.findElement(By.xpath("//a[@href='0.html']"));
+        submenuM.click();
+
+        int actualResult = driver.findElements(By.xpath("//tbody/tr")).size() - 1;
+
+        Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
     }
