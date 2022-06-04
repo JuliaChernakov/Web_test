@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="WebTest table">
+    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="WebTest digit beginning">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Song99BottlesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" afterDir="false" />
@@ -39,36 +40,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="TestNG.NewWebTest.testDigitBeginning">
-    <configuration name="NewWebTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="JavaMavenTestNGWebTests" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.Song99BottlesTest">
     <configuration name="NewWebTest.testDigitBeginning" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NewWebTest" />
       <option name="METHOD_NAME" value="testDigitBeginning" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NewWebTest.testLastLanguage" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="JavaMavenTestNGWebTests" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
-      <option name="METHOD_NAME" value="testLastLanguage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -88,11 +74,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewWebTest.testTableHeaders" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Song99BottlesTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
-      <option name="METHOD_NAME" value="testTableHeaders" />
+      <option name="MAIN_CLASS_NAME" value="Song99BottlesTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Song99BottlesTest.testSongLyricsText" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="JavaMavenTestNGWebTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Song99BottlesTest" />
+      <option name="METHOD_NAME" value="testSongLyricsText" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Song99BottlesTest.testSongLyricsText1" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="JavaMavenTestNGWebTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Song99BottlesTest" />
+      <option name="METHOD_NAME" value="testSongLyricsText1" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -102,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.Song99BottlesTest" />
+        <item itemvalue="TestNG.Song99BottlesTest.testSongLyricsText" />
+        <item itemvalue="TestNG.Song99BottlesTest.testSongLyricsText1" />
         <item itemvalue="TestNG.NewWebTest.testDigitBeginning" />
         <item itemvalue="TestNG.NewWebTest.testMathematicaLanguage" />
-        <item itemvalue="TestNG.NewWebTest.testTableHeaders" />
-        <item itemvalue="TestNG.NewWebTest.testLastLanguage" />
-        <item itemvalue="TestNG.NewWebTest" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654043006750</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="WebTest digit beginning">
+      <created>1654044257794</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654044257794</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +234,7 @@
     <MESSAGE value="new webtests" />
     <MESSAGE value="new web test" />
     <MESSAGE value="WebTest table" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebTest table" />
+    <MESSAGE value="WebTest digit beginning" />
+    <option name="LAST_COMMIT_MESSAGE" value="WebTest digit beginning" />
   </component>
 </project>
