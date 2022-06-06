@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="WebTest digit beginning">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Song99BottlesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Song99BottlesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Song99BottlesTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +49,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Song99BottlesTest">
+  <component name="RunManager" selected="TestNG.NewWebTest.testMathematicaLanguageInformation">
     <configuration name="NewWebTest.testDigitBeginning" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
@@ -62,11 +62,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewWebTest.testMathematicaLanguage" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="NewWebTest.testMathematicaLanguageInformation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NewWebTest" />
-      <option name="METHOD_NAME" value="testMathematicaLanguage" />
+      <option name="METHOD_NAME" value="testMathematicaLanguageInformation" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -111,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.Song99BottlesTest" />
+        <item itemvalue="TestNG.NewWebTest.testMathematicaLanguageInformation" />
         <item itemvalue="TestNG.Song99BottlesTest.testSongLyricsText" />
+        <item itemvalue="TestNG.Song99BottlesTest" />
         <item itemvalue="TestNG.Song99BottlesTest.testSongLyricsText1" />
         <item itemvalue="TestNG.NewWebTest.testDigitBeginning" />
-        <item itemvalue="TestNG.NewWebTest.testMathematicaLanguage" />
       </list>
     </recent_temporary>
   </component>

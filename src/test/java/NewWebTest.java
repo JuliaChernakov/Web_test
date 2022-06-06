@@ -5,7 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NewWebTest {
+    private static final String BASE_URL = "http://www.99-bottles-of-beer.net/";
 
     /**
      * Подтвердите, что в меню BROWSE LANGUAGES, подменю  J, пользователь
@@ -16,13 +20,12 @@ public class NewWebTest {
     public void testPageDescription() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
-        String url = "http://www.99-bottles-of-beer.net/";
         String expectedResult = "All languages starting with the letter J are shown, sorted by Language.";
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
 
-        driver.get(url);
+        driver.get(BASE_URL);
 
         WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
         menuBrowseLanguages.click();
@@ -45,13 +48,12 @@ public class NewWebTest {
     public void testLastLanguage() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
-        String url = "http://www.99-bottles-of-beer.net/";
         String expectedResult = "MySQL";
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
 
-        driver.get(url);
+        driver.get(BASE_URL);
 
         WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
         menuBrowseLanguages.click();
@@ -75,13 +77,12 @@ public class NewWebTest {
     public void testTableHeaders() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
-        String url = "http://www.99-bottles-of-beer.net/";
         String[] expectedResult = {"Language", "Author", "Date", "Comments", "Rate"};
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
 
-        driver.get(url);
+        driver.get(BASE_URL);
 
         WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
         menuBrowseLanguages.click();
@@ -101,50 +102,61 @@ public class NewWebTest {
      * дата обновления решения на этом языке - 03/16/06, и что это решение имеет 1 комментарий
      */
     @Test
-    public void testMathematicaLanguage() {
+    public void testMathematicaLanguageInformation() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
-        String url = "http://www.99-bottles-of-beer.net/";
+        String expectedResultLanguage = "Mathematica";
         String expectedResultAuthor = "Brenton Bostick";
         String expectedResultDate = "03/16/06";
-        String expectedResultNumber = "1";
+        String expectedResultComments = "1";
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
 
-        driver.get(url);
+        driver.get(BASE_URL);
+        driver.findElement(By.linkText("Browse Languages")).click();
+        driver.findElement(By.linkText("M")).click();
 
-        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
-        menuBrowseLanguages.click();
-        WebElement submenuM = driver.findElement(By.xpath("//a[@href='m.html']"));
-        submenuM.click();
+        List<WebElement> trs = driver.findElements(By.xpath("//table[@id='category']/tbody/tr"));
 
-        WebElement author = driver.findElement(By.xpath("//tr[22]/td[2]"));
-        String actualResultAuthor = author.getText();
-        WebElement date = driver.findElement(By.xpath("//tr[22]/td[3]"));
-        String actualResultDate = date.getText();
-        WebElement number = driver.findElement(By.xpath("//tr[22]/td[4]"));
-        String actualResultNumber = number.getText();
+        List <String> actualResult = new ArrayList<>();
 
-        Assert.assertEquals(actualResultAuthor, expectedResultAuthor);
-        Assert.assertEquals(actualResultDate, expectedResultDate);
-        Assert.assertEquals(actualResultNumber, expectedResultNumber);
+        for (WebElement tr : trs) {
+            if (tr.getText().contains(expectedResultLanguage)) {
+                actualResult.add(tr.getText());
+            }
+        }
+
+        StringBuilder expectedResult = new StringBuilder();
+        expectedResult
+                .append(expectedResultLanguage)
+                .append(" ")
+                .append(expectedResultAuthor)
+                .append(" ")
+                .append(expectedResultDate)
+                .append(" ")
+                .append(expectedResultComments);
+
+        Assert.assertEquals(actualResult.size(), 1);
+        Assert.assertFalse(actualResult.get(0).isEmpty());
+        Assert.assertEquals(actualResult.get(0), expectedResult.toString());
 
         driver.quit();
     }
 
-    /**    Подтвердите, что на сайте существует 10 языков, названия которых начинаются с цифр. */
+    /**
+     * Подтвердите, что на сайте существует 10 языков, названия которых начинаются с цифр.
+     */
     @Test
     public void testDigitBeginning() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
-        String url = "http://www.99-bottles-of-beer.net/";
         int expectedResult = 10;
 
         System.setProperty(chromeDriver, driverPath);
         WebDriver driver = new ChromeDriver();
 
-        driver.get(url);
+        driver.get(BASE_URL);
 
         WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
         menuBrowseLanguages.click();
@@ -157,4 +169,36 @@ public class NewWebTest {
 
         driver.quit();
     }
+
+    /**
+     *  Подтвердите, что если на странице Sign Guestbook http://www.99-bottles-of-beer.net/signv2.html
+     *  вы заполните все поля формы, но введете случайно сгенерированное трехзначное число в поле Security Code: ,
+     *  то вы получите сообщение об ошибке Error: Error: Invalid security code.
+     */
+    @Test
+    public void testErrorMessage() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String expectedResult = "Error: Error: Invalid security code";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+
+        // заполнить все поля формы
+
+//        случайно сгенерированное число
+
+//        WebElement submenuM = driver.findElement(By.xpath("//a[@href='0.html']"));
+//        submenuM.click();
+//
+//        String actualResult = driver.findElement(By.xpath("//tbody/tr")).getText();
+
+//        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+
 }
