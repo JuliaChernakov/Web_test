@@ -167,71 +167,12 @@ public class NewWebTest {
         driver.quit();
     }
 
-    //    /**
-//     * Подтвердите, что если на странице Sign Guestbook http://www.99-bottles-of-beer.net/signv2.html
-//     * вы заполните все поля формы, но введете случайно сгенерированное трехзначное число в поле Security Code: ,
-//     * то вы получите сообщение об ошибке Error: Error: Invalid security code.
-//     */
-    @Test
-    public void testErrorMessage() {
-        String chromeDriver = "webdriver.chrome.driver";
-        String driverPath = "/Applications/chromedriver";
-        String expectedResult = "Error: Error: Invalid security code";
-
-        System.setProperty(chromeDriver, driverPath);
-        WebDriver driver = new ChromeDriver();
-
-        driver.get(BASE_URL);
-
-        // заполнить все поля формы
-
-        int randomNumber = (int) (Math.random() * 899 + 100);
-
-//        WebElement submenuM = driver.findElement(By.xpath("//a[@href='0.html']"));
-//        submenuM.click();
-//
-//        String actualResult = driver.findElement(By.xpath("//tbody/tr")).getText();
-
-//        Assert.assertEquals(actualResult, expectedResult);
-
-        driver.quit();
-    }
-
-    //    /**
-//     * Выберите любой язык программирования (из меню BROWSE LANGUAGES) и любую версию решения
-//     * (из раздела Alternative Versions, если такой раздел существует  для выбранного языка)
-//     * Подтвердите, что пользователь может сделать закладку на это решение на сайте Reddit
-//     * (нажав на иконку сайта Reddit, пользователь перейдет на Логин страницу сайта Reddit)
-//     */
-    @Test
-    public void testBookmarkReddit() {
-        String chromeDriver = "webdriver.chrome.driver";
-        String driverPath = "/Applications/chromedriver";
-        String expectedResult = "";
-
-        System.setProperty(chromeDriver, driverPath);
-        WebDriver driver = new ChromeDriver();
-
-        driver.get(BASE_URL);
-
-        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
-        driver.findElement(By.xpath("//a[@href='b.html']")).click();
-        driver.findElement(By.linkText("BASIC")).click();
-
-//        Assert.assertEquals(actualResult, expectedResult);
-
-        driver.quit();
-
-    }
-
     /**
      * Подтвердите, что решение на языке Shakespeare:
      *      - входит в топ 20 всех решений
      *      - входит в топ 10 решений на Esoteric Languages и
      *      - входит в топ 6 решений-хитов.
      *      - НЕ входит в список топовых решений на реальных языках программирования.
-     * (Можно написать одним тестом, но так, чтобы все Asserts были в конце теста.
-     * Или можно написать отдельные тесты на каждый requirenment.)
      */
     @Test
     public void testShakespearePlace() {
@@ -244,14 +185,38 @@ public class NewWebTest {
         driver.get(BASE_URL);
 
         driver.findElement(By.xpath("//li/a[@href='/toplist.html']")).click();
-        List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
-
+        List<WebElement> tableRowsAll = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
         String actualResultTop20All = "";
         for (int i = 0; i < 20; i++) {
-            actualResultTop20All += tableRows.get(i + 1).getText();
+            actualResultTop20All += tableRowsAll.get(i + 1).getText();
+        }
+
+        driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./toplist_esoteric.html']")).click();
+        List<WebElement> tableRowsEsoteric = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
+        String actualResultTop10Esoteric = "";
+        for (int i = 0; i < 10; i++) {
+            actualResultTop10Esoteric += tableRowsEsoteric.get(i + 1).getText();
+        }
+
+        driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./tophits.html']")).click();
+        List<WebElement> tableRowsHits = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
+        String actualResultTop6Hits = "";
+        for (int i = 0; i < 10; i++) {
+            actualResultTop6Hits += tableRowsHits.get(i + 1).getText();
+        }
+
+        driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./toplist_real.html']")).click();
+        List<WebElement> tableRowsReal = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
+        List<String> actualResultTopReal= new ArrayList<>();
+
+        for (WebElement trr : tableRowsReal) {
+            actualResultTopReal.add(trr.getText());
         }
 
         Assert.assertTrue(actualResultTop20All.contains("Shakespeare"));
+        Assert.assertTrue(actualResultTop10Esoteric.contains("Shakespeare"));
+        Assert.assertTrue(actualResultTop6Hits.contains("Shakespeare"));
+        Assert.assertFalse(actualResultTopReal.contains("Shakespeare"));
 
         driver.quit();
     }

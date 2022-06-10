@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="WebTest digit beginning">
+    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="New test - language place in lists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" afterDir="false" />
@@ -212,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654044257794</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="New test - language place in lists">
+      <created>1654893913257</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654893913258</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +242,7 @@
     <MESSAGE value="new web test" />
     <MESSAGE value="WebTest table" />
     <MESSAGE value="WebTest digit beginning" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebTest digit beginning" />
+    <MESSAGE value="New test - language place in lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="New test - language place in lists" />
   </component>
 </project>
