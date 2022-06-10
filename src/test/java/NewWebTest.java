@@ -84,8 +84,7 @@ public class NewWebTest {
 
         driver.get(BASE_URL);
 
-        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
-        menuBrowseLanguages.click();
+        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
 
         String[] actualResult = new String[5];
         for (int i = 1; i <= 5; i++) {
@@ -119,7 +118,7 @@ public class NewWebTest {
 
         List<WebElement> trs = driver.findElements(By.xpath("//table[@id='category']/tbody/tr"));
 
-        List <String> actualResult = new ArrayList<>();
+        List<String> actualResult = new ArrayList<>();
 
         for (WebElement tr : trs) {
             if (tr.getText().contains(expectedResultLanguage)) {
@@ -158,10 +157,8 @@ public class NewWebTest {
 
         driver.get(BASE_URL);
 
-        WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
-        menuBrowseLanguages.click();
-        WebElement submenuM = driver.findElement(By.xpath("//a[@href='0.html']"));
-        submenuM.click();
+        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
+        driver.findElement(By.xpath("//a[@href='0.html']")).click();
 
         int actualResult = driver.findElements(By.xpath("//tbody/tr")).size() - 1;
 
@@ -170,11 +167,11 @@ public class NewWebTest {
         driver.quit();
     }
 
-    /**
-     *  Подтвердите, что если на странице Sign Guestbook http://www.99-bottles-of-beer.net/signv2.html
-     *  вы заполните все поля формы, но введете случайно сгенерированное трехзначное число в поле Security Code: ,
-     *  то вы получите сообщение об ошибке Error: Error: Invalid security code.
-     */
+    //    /**
+//     * Подтвердите, что если на странице Sign Guestbook http://www.99-bottles-of-beer.net/signv2.html
+//     * вы заполните все поля формы, но введете случайно сгенерированное трехзначное число в поле Security Code: ,
+//     * то вы получите сообщение об ошибке Error: Error: Invalid security code.
+//     */
     @Test
     public void testErrorMessage() {
         String chromeDriver = "webdriver.chrome.driver";
@@ -188,7 +185,7 @@ public class NewWebTest {
 
         // заполнить все поля формы
 
-//        случайно сгенерированное число
+        int randomNumber = (int) (Math.random() * 899 + 100);
 
 //        WebElement submenuM = driver.findElement(By.xpath("//a[@href='0.html']"));
 //        submenuM.click();
@@ -200,5 +197,62 @@ public class NewWebTest {
         driver.quit();
     }
 
+    //    /**
+//     * Выберите любой язык программирования (из меню BROWSE LANGUAGES) и любую версию решения
+//     * (из раздела Alternative Versions, если такой раздел существует  для выбранного языка)
+//     * Подтвердите, что пользователь может сделать закладку на это решение на сайте Reddit
+//     * (нажав на иконку сайта Reddit, пользователь перейдет на Логин страницу сайта Reddit)
+//     */
+    @Test
+    public void testBookmarkReddit() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String expectedResult = "";
 
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+
+        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
+        driver.findElement(By.xpath("//a[@href='b.html']")).click();
+        driver.findElement(By.linkText("BASIC")).click();
+
+//        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+
+    }
+
+    /**
+     * Подтвердите, что решение на языке Shakespeare:
+     *      - входит в топ 20 всех решений
+     *      - входит в топ 10 решений на Esoteric Languages и
+     *      - входит в топ 6 решений-хитов.
+     *      - НЕ входит в список топовых решений на реальных языках программирования.
+     * (Можно написать одним тестом, но так, чтобы все Asserts были в конце теста.
+     * Или можно написать отдельные тесты на каждый requirenment.)
+     */
+    @Test
+    public void testShakespearePlace() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+
+        driver.findElement(By.xpath("//li/a[@href='/toplist.html']")).click();
+        List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
+
+        String actualResultTop20All = "";
+        for (int i = 0; i < 20; i++) {
+            actualResultTop20All += tableRows.get(i + 1).getText();
+        }
+
+        Assert.assertTrue(actualResultTop20All.contains("Shakespeare"));
+
+        driver.quit();
+    }
 }

@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Song99BottlesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Song99BottlesTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.NewWebTest.testMathematicaLanguageInformation">
+  <component name="RunManager" selected="TestNG.NewWebTest.testShakespearePlace">
     <configuration name="NewWebTest.testDigitBeginning" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
@@ -74,11 +73,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Song99BottlesTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="NewWebTest.testShakespearePlace" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Song99BottlesTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
+      <option name="METHOD_NAME" value="testShakespearePlace" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewWebTest.testTableHeaders" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="JavaMavenTestNGWebTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
+      <option name="METHOD_NAME" value="testTableHeaders" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -97,25 +109,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Song99BottlesTest.testSongLyricsText1" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="JavaMavenTestNGWebTests" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Song99BottlesTest" />
-      <option name="METHOD_NAME" value="testSongLyricsText1" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.NewWebTest.testShakespearePlace" />
+        <item itemvalue="TestNG.NewWebTest.testDigitBeginning" />
+        <item itemvalue="TestNG.NewWebTest.testTableHeaders" />
         <item itemvalue="TestNG.NewWebTest.testMathematicaLanguageInformation" />
         <item itemvalue="TestNG.Song99BottlesTest.testSongLyricsText" />
-        <item itemvalue="TestNG.Song99BottlesTest" />
-        <item itemvalue="TestNG.Song99BottlesTest.testSongLyricsText1" />
-        <item itemvalue="TestNG.NewWebTest.testDigitBeginning" />
       </list>
     </recent_temporary>
   </component>
