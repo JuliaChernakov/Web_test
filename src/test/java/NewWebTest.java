@@ -168,6 +168,35 @@ public class NewWebTest {
     }
 
     /**
+     * Выберите любой язык программирования (из меню BROWSE LANGUAGES) и любую версию решения
+     * (из раздела Alternative Versions, если такой раздел существует  для выбранного языка)
+     * Подтвердите, что пользователь может сделать закладку на это решение на сайте Reddit
+     * (нажав на иконку сайта Reddit, пользователь перейдет на Логин страницу сайта Reddit)
+     */
+    @Test
+    public void testBookmarkReddit() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+
+        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
+        driver.findElement(By.xpath("//a[@href='b.html']")).click();
+        driver.findElement(By.linkText("BASIC")).click();
+        driver.findElement(By.linkText("Atari 8Bit")).click();
+        driver.findElement(By.xpath("//div[@id='voting']/p/a[@title='reddit']")).click();
+        String actualResult = driver.findElement(By
+                .xpath("//div[@class='BottomText login-bottom-text register hideable']")).getText();
+
+        Assert.assertTrue(actualResult.contains("Reddit"));
+
+        driver.quit();
+    }
+
+    /**
      * Подтвердите, что решение на языке Shakespeare:
      *      - входит в топ 20 всех решений
      *      - входит в топ 10 решений на Esoteric Languages и
@@ -201,14 +230,13 @@ public class NewWebTest {
         driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./tophits.html']")).click();
         List<WebElement> tableRowsHits = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
         String actualResultTop6Hits = "";
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
             actualResultTop6Hits += tableRowsHits.get(i + 1).getText();
         }
 
         driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./toplist_real.html']")).click();
         List<WebElement> tableRowsReal = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
         List<String> actualResultTopReal= new ArrayList<>();
-
         for (WebElement trr : tableRowsReal) {
             actualResultTopReal.add(trr.getText());
         }
