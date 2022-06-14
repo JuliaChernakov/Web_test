@@ -182,7 +182,6 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
         driver.findElement(By.xpath("//a[@href='b.html']")).click();
         driver.findElement(By.linkText("BASIC")).click();
@@ -198,10 +197,10 @@ public class NewWebTest {
 
     /**
      * Подтвердите, что решение на языке Shakespeare:
-     *      - входит в топ 20 всех решений
-     *      - входит в топ 10 решений на Esoteric Languages и
-     *      - входит в топ 6 решений-хитов.
-     *      - НЕ входит в список топовых решений на реальных языках программирования.
+     * - входит в топ 20 всех решений
+     * - входит в топ 10 решений на Esoteric Languages и
+     * - входит в топ 6 решений-хитов.
+     * - НЕ входит в список топовых решений на реальных языках программирования.
      */
     @Test
     public void testShakespearePlace() {
@@ -236,7 +235,7 @@ public class NewWebTest {
 
         driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./toplist_real.html']")).click();
         List<WebElement> tableRowsReal = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
-        List<String> actualResultTopReal= new ArrayList<>();
+        List<String> actualResultTopReal = new ArrayList<>();
         for (WebElement trr : tableRowsReal) {
             actualResultTopReal.add(trr.getText());
         }
@@ -245,6 +244,30 @@ public class NewWebTest {
         Assert.assertTrue(actualResultTop10Esoteric.contains("Shakespeare"));
         Assert.assertTrue(actualResultTop6Hits.contains("Shakespeare"));
         Assert.assertFalse(actualResultTopReal.contains("Shakespeare"));
+
+        driver.quit();
+    }
+
+    /**
+     * Подтвердите, что существует 6 версий решений на языке программирования Java.
+     */
+    @Test
+    public void testJavaVersionsQuantity() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        int expectedResult = 6;
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+
+        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
+        driver.findElement(By.xpath("//a[@href='j.html']")).click();
+        driver.findElement(By.linkText("Java")).click();
+        int actualResult = driver.findElements(By.xpath("//table[@id='category']/tbody/tr")).size();
+
+        Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
     }
