@@ -26,7 +26,6 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
         menuBrowseLanguages.click();
 
@@ -54,7 +53,6 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         WebElement menuBrowseLanguages = driver.findElement(By.xpath("//li/a[@href='/abc.html']"));
         menuBrowseLanguages.click();
 
@@ -83,7 +81,6 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
 
         String[] actualResult = new String[5];
@@ -156,7 +153,6 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
         driver.findElement(By.xpath("//a[@href='0.html']")).click();
 
@@ -211,7 +207,6 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         driver.findElement(By.xpath("//li/a[@href='/toplist.html']")).click();
         List<WebElement> tableRowsAll = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td/a"));
         String actualResultTop20All = "";
@@ -252,7 +247,7 @@ public class NewWebTest {
      * Подтвердите, что существует 6 версий решений на языке программирования Java.
      */
     @Test
-    public void testJavaVersionsQuantity() {
+    public void testJavaVersionsNumber() {
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Applications/chromedriver";
         int expectedResult = 6;
@@ -261,11 +256,53 @@ public class NewWebTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get(BASE_URL);
-
         driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
         driver.findElement(By.xpath("//a[@href='j.html']")).click();
         driver.findElement(By.linkText("Java")).click();
         int actualResult = driver.findElements(By.xpath("//table[@id='category']/tbody/tr")).size();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+    /**
+     * Подтвердите, что самое большое количество комментариев для решений
+     * на языке Java имеет версия “object-oriented version”
+     */
+    @Test
+    public void testJavaMaxNumberOfComments() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String expectedResult = "object-oriented version";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+        driver.findElement(By.xpath("//li/a[@href='/abc.html']")).click();
+        driver.findElement(By.xpath("//a[@href='j.html']")).click();
+        driver.findElement(By.linkText("Java")).click();
+
+        List<WebElement> numberOfComments = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td[4]"));
+        int min = Integer.MAX_VALUE;
+        for (WebElement noc : numberOfComments) {
+            if (Integer.parseInt(noc.getText()) < min) {
+                min = Integer.parseInt(noc.getText());
+            }
+        }
+        driver.findElement(By.xpath("//table[@id='category']/tbody/tr/td[text()=" + min + "]/..//td/a")).click();
+
+        List<WebElement> numberOfCommentsNew = driver.findElements(By.xpath("//table[@id='category']/tbody/tr/td[4]"));
+        int max = Integer.MIN_VALUE;
+        for (WebElement nocn : numberOfCommentsNew) {
+            if (Integer.parseInt(nocn.getText()) > max) {
+                max = Integer.parseInt(nocn.getText());
+            }
+        }
+
+        String actualResult = driver.findElement(By
+                .xpath("//table[@id='category']/tbody/tr/td[text()=" + max + "]/..//td/a")).getText();
 
         Assert.assertEquals(actualResult, expectedResult);
 
