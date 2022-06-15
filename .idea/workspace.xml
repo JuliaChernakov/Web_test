@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="Test versions quantity">
+    <list default="true" id="fc374a0c-05f6-428d-98fb-b6b62cfb8930" name="Changes" comment="Test maximum number of comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NewWebTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewWebTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/NewWebTest.class" afterDir="false" />
@@ -48,7 +48,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.NewWebTest.testJavaMoreComments">
+  <component name="RunManager" selected="TestNG.NewWebTest.testErrorMessage">
     <configuration name="NewWebTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="JavaMavenTestNGWebTests" />
       <option name="PACKAGE_NAME" value="" />
@@ -65,6 +65,18 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NewWebTest" />
       <option name="METHOD_NAME" value="testBookmarkReddit" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewWebTest.testErrorMessage" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="JavaMavenTestNGWebTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
+      <option name="METHOD_NAME" value="testErrorMessage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -96,25 +108,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewWebTest.testShakespearePlace" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="JavaMavenTestNGWebTests" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NewWebTest" />
-      <option name="METHOD_NAME" value="testShakespearePlace" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.NewWebTest.testErrorMessage" />
         <item itemvalue="TestNG.NewWebTest.testJavaMoreComments" />
         <item itemvalue="TestNG.NewWebTest" />
         <item itemvalue="TestNG.NewWebTest.testJavaVersionsQuantity" />
         <item itemvalue="TestNG.NewWebTest.testBookmarkReddit" />
-        <item itemvalue="TestNG.NewWebTest.testShakespearePlace" />
       </list>
     </recent_temporary>
   </component>
@@ -239,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655195282603</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Test maximum number of comments">
+      <created>1655251471217</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1655251471217</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,6 +273,7 @@
     <MESSAGE value="Add to test Language place in lists and code refactoring" />
     <MESSAGE value="Test bookmark and code refactoring" />
     <MESSAGE value="Test versions quantity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test versions quantity" />
+    <MESSAGE value="Test maximum number of comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test maximum number of comments" />
   </component>
 </project>

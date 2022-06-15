@@ -162,6 +162,38 @@ public class NewWebTest {
 
         driver.quit();
     }
+    /**
+     * Подтвердите, что если на странице Sign Guestbook http://www.99-bottles-of-beer.net/signv2.html
+     * вы заполните все поля формы, но введете случайно сгенерированное трехзначное число в поле Security Code: ,
+     * то вы получите сообщение об ошибке Error: Error: Invalid security code.
+     */
+    @Test
+    public void testErrorMessage() {
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Applications/chromedriver";
+        String expectedResult = "Error: Error: Invalid security code.";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(BASE_URL);
+        driver.findElement(By.xpath("//li/a[@href='/guestbookv2.html']")).click();
+        driver.findElement(By.xpath("//ul[@id='submenu']/li/a[@href='./signv2.html']")).click();
+
+        String randomNumber = String.valueOf((int) (Math.random() * 899 + 100));
+        driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Julia");
+        driver.findElement(By.xpath("//input[@name='location']")).sendKeys("Israel");
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("chitay@mail.ru");
+        driver.findElement(By.xpath("//input[@name='homepage']")).sendKeys("mail.ru");
+        driver.findElement(By.xpath("//input[@name='captcha']")).sendKeys(randomNumber);
+        driver.findElement(By.xpath("//textarea[@name='comment']")).sendKeys("abrakadabra");
+        driver.findElement(By.xpath("//input[@name='submit']")).click();
+        String actualResult = driver.findElement(By.xpath("//div[@id='main']/p")).getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
 
     /**
      * Выберите любой язык программирования (из меню BROWSE LANGUAGES) и любую версию решения
